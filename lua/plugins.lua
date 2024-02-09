@@ -59,7 +59,7 @@ return packer.startup(function(use)
     use "rstacruz/vim-closer"		-- Cierra automáticamente los brackets
     require("plugins.colorscheme")(use) -- El colorscheme a utilizar 
     
-   
+    require("plugins.cmp-plugins")(use)	-- Los plugins para el CMP  (autocompletado)   
 
   -- Llamado de la función de plugins 
     if PACKER_BOOTSTRAP then 

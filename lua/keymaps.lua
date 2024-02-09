@@ -39,6 +39,9 @@ keymap('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/]], opts)
 -- Cambia el nombre de variable una por una 
 keymap('n', '<leader>rn', "cgn", opts)
 
+-- Abre el filetree
+keymap("n", "<leader>e", ":Lexplore<CR>", opts)
+
 -- Insert --
 -- tocar jk para ir a modo normal
 keymap("i", "jk", "<esc>", opts)
