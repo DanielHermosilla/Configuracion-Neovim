@@ -60,6 +60,8 @@ return packer.startup(function(use)
     require("plugins.colorscheme")(use) -- El colorscheme a utilizar 
     
     require("plugins.cmp-plugins")(use)	-- Los plugins para el CMP  (autocompletado)   
+    
+    require("plugins.lsp-plugins")(use) -- Los plugins para el LSP con Mason
 
   -- Llamado de la función de plugins 
     if PACKER_BOOTSTRAP then 

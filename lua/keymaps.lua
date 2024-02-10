@@ -47,8 +47,11 @@ keymap("n", "<leader>e", ":Lexplore<CR>", opts)
 keymap("i", "jk", "<esc>", opts)
 keymap("i", "kj", "<esc>", opts)
 
+-- Entrar a modo visual al seleccionar palabras 
+keymap("i", "<S-Right>", "<esc>vw", opts)
+keymap("i", "<S-Left>", "<esc>vb", opts)
+
 -- Visual --
--- poder tabear en modo visual 
 keymap("v", "<tab>", ">gv", opts)
 keymap("v", "<s-tab>", "<gv", opts)
 
@@ -58,6 +61,9 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Arreglar comportamiento del yank-paste
 keymap("v", "p", '"_dP', opts)
+
+-- Entra a insert mode directamente desde visual 
+keymap("v", "i", "<esc>i", opts)
 
 -- Visual Block --
 -- Mover texto hacia arriba o abajo (Alt-J/K)
