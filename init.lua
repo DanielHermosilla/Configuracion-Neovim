@@ -1,8 +1,18 @@
-require "options"				-- Configuraciones de las opciones de Vim 
-require "keymaps"				-- Configuraciones de las teclas predefinidas
-require "plugins"				-- Archivo donde se llama al instalador de plugins
-require "cmp-config"				-- La configuración para el CMP
-vim.cmd("colorscheme kanagawa-dragon")		-- El colorscheme a utilizar
+require "config"				-- Directorio con las configuraciones nativas de Vim
 
+-- Instalador de plugins con Lazy -- 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup("plugins")		-- El instalador de plugins bajo el directorio "Plugins"
 
