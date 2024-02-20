@@ -1,17 +1,4 @@
-require "config"				-- Directorio con las configuraciones nativas de Vim
+require "config"					-- Directorio con las configuraciones nativas de Vim
+require("plug-config")				-- Todo lo relacionado con plugins con sus respectivas configuraciones
+require("telescope").load_extension("ui-select")	-- Para los warnings del código
 
--- Instalador de plugins con Lazy -- 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins")		-- El instalador de plugins bajo el directorio "Plugins"

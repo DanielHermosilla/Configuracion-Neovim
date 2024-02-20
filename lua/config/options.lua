@@ -20,10 +20,12 @@ vim.opt.smartindent = true				-- Hace que las indentaciones sean inteligentes
 vim.opt.splitbelow = true				-- Cada split horizontal va por abajo de la ventana de trabajo 
 vim.opt.splitright = true				-- Cada split vertical va a la derecha de la ventana de trabajo 
 vim.opt.undofile = true					-- Permite el undo persistente 
-vim.opt.shiftwidth = 2					-- Inserta dos espacios por cada tab 
+vim.opt.shiftwidth = 4					-- Inserta cuatro espacios por cada tab 
+vim.opt.tabstop = 4  					-- Establece el tamaño de tabulación a 4 espacios
 vim.opt.cursorline = false				-- Destaca la linea que se est√° editando
 vim.opt.number = true					-- Activa las lineas enumeradas 
 vim.opt.relativenumber = true				-- Activa las lineas relativas
-vim.opt.scrolloff = 8					-- Cantidad de lineas mínimas de espacio
+vim.opt.scrolloff = 4					-- Cantidad de lineas mínimas de espacio
 vim.opt.termguicolors = true				-- Ocupa los colores del terminal
-vim.g.mapleader = " "					-- Declara a la tecla lider 
+vim.g.mapleader = " "					-- Declara a la tecla lider
+

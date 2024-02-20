@@ -3,6 +3,12 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{
+		"micangl/cmp-vimtex", -- Snippets que funcionan con Vimtex
+	},
+	{
+		"SirVer/ultisnips"
+	},
+	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
@@ -41,30 +47,15 @@ return {
 						c = cmp.mapping.close(),
 					}),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fallback) -- Permite navegar con Tab
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							fallback()
-						end
-					end, {
-						"i",
-						"s",
-					}),
-					["<S-Tab>"] = cmp.mapping(function(fallback) -- Permite navegar con Tab
-						if cmp.visible() then
-							cmp.select_prev_item()
-						else
-							fallback()
-						end
-					end, {
-						"i",
-						"s",
-					}),
+					["<Tab>"] = cmp.mapping.select_next_item(), -- Permite la navegación con Tab
+					["<S-Tab>"] = cmp.mapping.select_prev_item(), -- Permite la navegación con Tab
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "path" },
+					{ name = "cmdline" },
+					{ name = "cmp-vimtex" },
 				}, {
 					{ name = "buffer" },
 				}),
@@ -72,4 +63,3 @@ return {
 		end,
 	},
 }
-

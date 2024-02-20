@@ -9,6 +9,10 @@ return {
 				null_ls.builtins.diagnostics.eslint_d, -- Linter de JavaScript
 				null_ls.builtins.formatting.black, -- Formatter de Python
 				null_ls.builtins.formatting.isort, -- Formatter de Python
+				null_ls.builtins.diagnostics.chktex, -- Linter de LaTeX -- No está en Mason
+				null_ls.builtins.formatting.latexindent, -- Formatter de LaTeX
+				null_ls.builtins.formatting.prettier, -- Formatter de varios lenguajes
+				null_ls.builtins.formatting.sqlfluff, -- Formatter de SQL 
 			},
 		})
 	end,

@@ -1,4 +1,3 @@
-require("lazy-config")
-require("telescope").load_extension("ui-select")	-- Para los warnings del código
-require("whichkey-mappings")
+require("plug-config.lazy-config")
+require("plug-config.whichkey-mappings")
 
