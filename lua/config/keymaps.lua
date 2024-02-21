@@ -1,12 +1,9 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
 
 -- Declaración de variable
 local keymap = vim.keymap.set
 
--- Poner el espacio como tecla líder
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,13 +16,13 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Navegar al hacer splits 
+-- Navegar al hacer splits
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Navegar por buffers 
+-- Navegar por buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -33,21 +30,25 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
--- Cambia el nombre de todas las variables 
+-- Cambia el nombre de todas las variables
 keymap('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/]], opts)
 
--- Cambia el nombre de variable una por una 
+-- Cambia el nombre de variable una por una
 keymap('n', '<leader>rn', "cgn", opts)
 
 -- Abre el filetree
 keymap("n", "<leader>e", ":Lexplore<CR>", opts)
+
+-- Activa y desactiva los warnings
+keymap("n", "<leader>d", ":lua vim.diagnostic.config({ virtual_text = false })<CR>", opts) -- Saca el texto de los errores
+keymap("n", "<leader>dd", ":lua vim.diagnostic.config({ virtual_text = true })<CR>", opts) -- Vuelve a poner el texto de los errores
 
 -- Insert --
 -- tocar jk para ir a modo normal
 keymap("i", "jk", "<esc>", opts)
 keymap("i", "kj", "<esc>", opts)
 
--- Entrar a modo visual al seleccionar palabras 
+-- Entrar a modo visual al seleccionar palabras
 keymap("i", "<S-Right>", "<esc>vw", opts)
 keymap("i", "<S-Left>", "<esc>vb", opts)
 
@@ -62,7 +63,7 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- Arreglar comportamiento del yank-paste
 keymap("v", "p", '"_dP', opts)
 
--- Entra a insert mode directamente desde visual 
+-- Entra a insert mode directamente desde visual
 keymap("v", "i", "<esc>i", opts)
 
 -- Visual Block --
@@ -71,4 +72,3 @@ keymap("x", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
-

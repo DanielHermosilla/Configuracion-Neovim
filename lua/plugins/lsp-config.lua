@@ -6,7 +6,7 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim", -- Configuraci贸n de Mason
+		"williamboman/mason-lspconfig.nvim", -- Configuraci髇 de Mason
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = { -- Hacemos que se tengan los LSP
@@ -14,23 +14,26 @@ return {
 					"tsserver", -- LSP de JavaScript
 					"ltex", -- LSP de LaTeX
 					"pylsp", -- LSP de Python
-
 				},
 			})
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig", -- Permite la comunicaci贸n entre Neovim y el servidor
+		"neovim/nvim-lspconfig", -- Permite la comunicaci髇 entre Neovim y el servidor
 
 		config = function()
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})                                -- Comunicaci贸n con Lua
-			lspconfig.tsserver.setup({})                              -- Comunicaci贸n con JavaScript
-			lspconfig.ltex.setup({})                                  -- Comunicaci贸n con LaTeX
-			lspconfig.pyright.setup({})                                 -- Comunicaci贸n con Python
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})           -- Mostrar informaci贸n del objeto
-			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores
-			vim.keymap.set("n", "<leader>d", vim.lsp.buf.clear_references, {}) -- Saca todos los errores
+
+			-- Configuraciones de comunicaci髇 --
+			lspconfig.lua_ls.setup({}) -- Comunicaci髇 con Lua
+			lspconfig.tsserver.setup({}) -- Comunicaci髇 con JavaScript
+			lspconfig.ltex.setup({}) -- Comunicaci髇 con LaTeX
+			lspconfig.pyright.setup({}) -- Comunicaci髇 con Python
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar informaci髇 del objeto
+			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores	
+
+			-- UI --
+			-- TODO: iconos, instalar Nerd Fonts correctamente
 		end,
 	},
 }
