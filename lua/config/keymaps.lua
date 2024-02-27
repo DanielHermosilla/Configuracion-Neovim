@@ -37,11 +37,15 @@ keymap('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/]], opts)
 keymap('n', '<leader>rn', "cgn", opts)
 
 -- Abre el filetree
-keymap("n", "<leader>e", ":Lexplore<CR>", opts)
+keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
 -- Activa y desactiva los warnings
 keymap("n", "<leader>d", ":lua vim.diagnostic.config({ virtual_text = false })<CR>", opts) -- Saca el texto de los errores
 keymap("n", "<leader>dd", ":lua vim.diagnostic.config({ virtual_text = true })<CR>", opts) -- Vuelve a poner el texto de los errores
+
+-- Permite tabear en modo normal 
+keymap("n", "<tab>", ">gv", opts)
+keymap("n", "<s-tab>", "<gv", opts)
 
 -- Insert --
 -- tocar jk para ir a modo normal

@@ -1,4 +1,4 @@
-local colors = require("colors")
+local colors = require("config.colors")
 
 return {
   -- Api.Auth._ (all capitalized)

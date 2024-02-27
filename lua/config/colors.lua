@@ -1,3 +1,4 @@
+-- Los colores que ocupará el theme --
 local M = {}
 
 M.white = "#ffffff"
