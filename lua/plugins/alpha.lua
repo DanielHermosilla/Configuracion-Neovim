@@ -26,7 +26,7 @@ return {
 			[[                                                                       ]],
 		}
 
-		-- Set menu
+		-- Configuración del menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > Archivo nuevo", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("f", "󰱼  > Buscar archivo", ":Telescope find_files<CR>"),
@@ -35,23 +35,25 @@ return {
 			dashboard.button("q", "󰿅  > Salir", ":qa<CR>"),
 		}
 
-		-- Set footer
-		--   NOTE: This is currently a feature in my fork of alpha-nvim (opened PR #21, will update snippet if added to main)
-		--   To see test this yourself, add the function as a dependecy in packer and uncomment the footer lines
-		--   ```init.lua
-		--   return require('packer').startup(function()
-		--       use 'wbthomason/packer.nvim'
-		--       use {
-		--           'goolord/alpha-nvim', branch = 'feature/startify-fortune',
-		--           requires = {'BlakeJC94/alpha-nvim-fortune'},
-		--           config = function() require("config.alpha") end
-		--       }
-		--   end)
-		--   ```
-		-- local fortune = require("alpha.fortune")
-		-- dashboard.section.footer.val = fortune()
-
-		-- Send config to alpha
+		-- Mandar la configuración a Alpha
 		alpha.setup(dashboard.opts)
+
+		-- Configuración de la parte de abajo
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "LazyVimStarted",
+			callback = function()
+				local stats = require("lazy").stats()
+				local count = (math.floor(stats.startuptime * 100) / 100)
+				dashboard.section.footer.val = {
+					" ",
+					" ",
+					" ",
+					"󱐌 " .. stats.count .. " plugins cargados en " .. count .. " ms",
+					" ",
+					"         Daniel Hermosilla",
+				}
+				pcall(vim.cmd.AlphaRedraw)
+			end,
+		})
 	end,
 }

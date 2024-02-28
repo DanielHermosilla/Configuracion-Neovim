@@ -28,4 +28,4 @@ vim.opt.relativenumber = true				-- Activa las lineas relativas
 vim.opt.scrolloff = 4					-- Cantidad de lineas mínimas de espacio
 vim.opt.termguicolors = true				-- Ocupa los colores del terminal
 vim.g.mapleader = " "					-- Declara a la tecla lider
-
+vim.opt.fillchars = { eob = " " }		-- Saca los "~" al final de los archivos (usar mientras se ocupe relative number) 

@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-
 -- Declaración de variable
 local keymap = vim.keymap.set
 
@@ -31,10 +30,10 @@ keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Cambia el nombre de todas las variables
-keymap('n', '<leader>rp', [[:%s/\<<C-r><C-w>\>/]], opts)
+keymap("n", "<leader>rp", [[:%s/\<<C-r><C-w>\>/]], opts)
 
 -- Cambia el nombre de variable una por una
-keymap('n', '<leader>rn', "cgn", opts)
+keymap("n", "<leader>rn", ":let @/=expand('<cword>')<cr>cgn", opts)
 
 -- Abre el filetree
 keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
@@ -43,9 +42,9 @@ keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 keymap("n", "<leader>d", ":lua vim.diagnostic.config({ virtual_text = false })<CR>", opts) -- Saca el texto de los errores
 keymap("n", "<leader>dd", ":lua vim.diagnostic.config({ virtual_text = true })<CR>", opts) -- Vuelve a poner el texto de los errores
 
--- Permite tabear en modo normal 
-keymap("n", "<tab>", ">gv", opts)
-keymap("n", "<s-tab>", "<gv", opts)
+-- Permite tabear en modo normal
+keymap("n", "<tab>", ">>", opts)
+keymap("n", "<s-tab>", "<<", opts)
 
 -- Insert --
 -- tocar jk para ir a modo normal
