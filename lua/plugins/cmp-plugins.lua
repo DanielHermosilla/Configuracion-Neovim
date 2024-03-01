@@ -16,7 +16,8 @@ return {
 				build = vim.fn.has("win32") ~= 0 and "make install_jsregexp" or nil, -- Caso que se corre en Windows
 				dependencies = {
 					"rafamadriz/friendly-snippets",
-					"saadparwaiz1/cmp_luasnip"
+					"saadparwaiz1/cmp_luasnip",
+					"ckunte/latex-snippets-vim",
 				},
 				config = function(_, opts)
 					if opts then
@@ -80,7 +81,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "path" },
-					{ name = "cmdline" },
+					--{ name = "cmdline" }, -- Al parecer no funciona bien 
 					{ name = "cmp-vimtex" },
 				}, {
 					{ name = "buffer" },
