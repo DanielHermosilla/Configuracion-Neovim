@@ -25,34 +25,40 @@
 	},
 } --]]
 
-return { -- Autoformat
-	"stevearc/conform.nvim",
-	opts = {
-		notify_on_error = false,
-		format_on_save = {
-			timeout_ms = 500,
-			lsp_fallback = true,
+return {
+	{ -- Autoformat
+		"stevearc/conform.nvim",
+		opts = {
+			notify_on_error = false,
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform can also run multiple formatters sequentially
+				python = { "black" },
+				--
+				-- You can use a sub-list to tell conform to run *until* a formatter
+				-- is found.
+				-- javascript = { { "prettierd", "prettier" } },
+				latex = { "latexindent" },
+			},
 		},
-		formatters_by_ft = {
-			lua = { "stylua" },
-			-- Conform can also run multiple formatters sequentially
-			python = { "black" },
-			--
-			-- You can use a sub-list to tell conform to run *until* a formatter
-			-- is found.
-			-- javascript = { { "prettierd", "prettier" } },
-			latex = { "latexindent" },
+		keys = {
+			{
+				"<leader>gf",
+				function()
+					require("conform").format({ lsp_fallback = "always" })
+					vim.cmd.update()
+				end,
+				mode = { "n", "x" },
+				desc = "Formatea y guarda",
+			},
 		},
 	},
-	keys = {
-		{
-			"<leader>gf",
-			function()
-				require("conform").format({ lsp_fallback = "always" })
-				vim.cmd.update()
-			end,
-			mode = { "n", "x" },
-			desc = "Formatea y guarda",
-		},
+	{ -- Permite instalar los formatters con Mason
+		"zapling/mason-conform.nvim",
+		opts = {},
 	},
 }
