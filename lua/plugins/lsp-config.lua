@@ -27,9 +27,18 @@ return {
 			-- Configuraciones de comunicación --
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
 			lspconfig.tsserver.setup({}) -- Comunicación con JavaScript
-			lspconfig.ltex.setup({}) -- Comunicación con LaTeX
 			lspconfig.pyright.setup({}) -- Comunicación con Python
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
+			lspconfig.latexindent.setup({})
+			lspconfig.ltex.setup({ -- Comunicación con LaTeX
+				flags = { debounce_text_changes = 300 },
+				settings = {
+					ltex = {
+						-- language = "en"
+						language = "es"
+					}
+				},
+			})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})           -- Mostrar información del objeto
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores	
 
 			-- UI --
