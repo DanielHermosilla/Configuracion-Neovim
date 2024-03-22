@@ -34,12 +34,12 @@ return {
 				settings = {
 					ltex = {
 						-- language = "en"
-						language = "es"
-					}
+						language = "es",
+					},
 				},
 			})
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})           -- Mostrar información del objeto
-			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores	
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
+			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores
 
 			-- UI --
 			-- TODO: iconos, instalar Nerd Fonts correctamente

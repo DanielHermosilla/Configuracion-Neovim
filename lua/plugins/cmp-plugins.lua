@@ -11,6 +11,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{ "kdheepak/cmp-latex-symbols" },
 			{ "saadparwaiz1/cmp_luasnip" },
+			{ "R-nvim/cmp-r" },
 			{
 				"L3MON4D3/LuaSnip",
 				build = vim.fn.has("win32") ~= 0 and "make install_jsregexp" or nil, -- Caso que se corre en Windows
@@ -41,6 +42,8 @@ return {
 					require("luasnip").filetype_extend("kotlin", { "kdoc" })
 					require("luasnip").filetype_extend("ruby", { "rdoc" })
 					require("luasnip").filetype_extend("sh", { "shelldoc" })
+					--require("cmp").setup({ sources = { { name = "cmp_r" } } })
+					--require("cmp_r").setup({})
 				end,
 			}, -- Snippets manager
 		},
@@ -54,9 +57,10 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			local has_words_before = function() -- Función para el "super-tab"
-			  unpack = unpack or table.unpack
-			  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-			  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+				unpack = unpack or table.unpack
+				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+				return col ~= 0
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 
 			cmp.setup({
@@ -110,11 +114,12 @@ return {
 					{ name = "path" },
 					--{ name = "cmdline" }, -- Al parecer no funciona bien
 					{ name = "cmp-vimtex" },
+					{ name = "cmp_r" },
 				}, {
 					{ name = "buffer" },
 				}),
 			})
+			require("cmp_r").setup({})
 		end,
 	},
 }
-
