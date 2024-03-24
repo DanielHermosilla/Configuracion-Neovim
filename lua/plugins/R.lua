@@ -2,6 +2,9 @@ return {
 	{
 		"R-nvim/R.nvim",
 		lazy = false,
+		config = function()
+			R_csv_app = "terminal:vd"
+		end,
 	},
 	{
 		"quarto-dev/quarto-nvim",
