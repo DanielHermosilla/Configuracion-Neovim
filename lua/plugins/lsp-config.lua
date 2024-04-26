@@ -28,7 +28,6 @@ return {
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
 			lspconfig.tsserver.setup({}) -- Comunicación con JavaScript
 			lspconfig.pyright.setup({}) -- Comunicación con Python
-			lspconfig.latexindent.setup({})
 			lspconfig.ltex.setup({ -- Comunicación con LaTeX
 				flags = { debounce_text_changes = 300 },
 				settings = {
@@ -38,7 +37,16 @@ return {
 					},
 				},
 			})
-			lspconfig.r_language_server.setup({}) -- Comunicación con R
+			--
+			-- configure texlab server
+			lspconfig["texlab"].setup({})
+
+			-- Comunicación con R
+			lspconfig.r_language_server.setup({
+				handlers = {
+					["textDocument/publishDiagnostics"] = function() end,
+				},
+			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores
 
