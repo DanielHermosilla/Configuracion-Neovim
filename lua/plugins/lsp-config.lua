@@ -39,7 +39,9 @@ return {
 			})
 			--
 			-- configure texlab server
-			lspconfig["texlab"].setup({})
+			lspconfig["texlab"].setup({
+				latexFormatter = "latexindent",
+			})
 
 			-- Comunicación con R
 			lspconfig.r_language_server.setup({

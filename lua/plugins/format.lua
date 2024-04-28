@@ -43,7 +43,23 @@ return {
 				-- is found.
 				-- javascript = { { "prettierd", "prettier" } },
 				-- latex = { "latexindent" },
-				r = { "r" },
+				--r = { "r" },
+				r = { "my_styler" },
+				tex = { "latexindent" },
+			},
+			formatters = {
+				my_styler = {
+					command = "R",
+					-- A list of strings, or a function that returns a list of strings
+					-- Return a single string instead of a list to run the command in a shell
+					args = { "-s", "-e", "styler::tidyverse_style()", "--args", "$FILENAME" },
+					stdin = false,
+				},
+			},
+			latexindent = {
+				prepend_args = {
+					"--logfile=/tmp/indent.log", -- Don't generate indent.log in project
+				},
 			},
 		},
 		keys = {

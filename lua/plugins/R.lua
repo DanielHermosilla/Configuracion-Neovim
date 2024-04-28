@@ -43,6 +43,20 @@ return {
 							unique = true,
 							desc = "Limpiar la consola",
 						}) -- Con <leader>c se puede limpiar la consola
+						vim.api.nvim_buf_set_keymap(0, "n", "<leader>rf", "<Plug>RStart", {
+							noremap = true,
+							silent = true,
+							expr = false,
+							unique = true,
+							desc = "Inicia la consola",
+						}) -- Con <leader>rf se inicia la consola
+						vim.api.nvim_buf_set_keymap(0, "n", "<leader>rc", "<Plug>RClose", {
+							noremap = true,
+							silent = true,
+							expr = false,
+							unique = true,
+							desc = "Limpiar la consola",
+						}) -- Con <leader>rc se puede cerrar la consola
 					end,
 				},
 				user_maps_only = true,
