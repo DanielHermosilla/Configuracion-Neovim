@@ -28,6 +28,7 @@ return {
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
 			lspconfig.tsserver.setup({}) -- Comunicación con JavaScript
 			lspconfig.pyright.setup({}) -- Comunicación con Python
+			lspconfig.clangd.setup({}) -- Comunicación con C++
 			lspconfig.ltex.setup({ -- Comunicación con LaTeX
 				flags = { debounce_text_changes = 300 },
 				settings = {
@@ -42,7 +43,6 @@ return {
 			lspconfig["texlab"].setup({
 				latexFormatter = "latexindent",
 			})
-
 			-- Comunicación con R
 			lspconfig.r_language_server.setup({
 				handlers = {

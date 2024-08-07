@@ -46,6 +46,8 @@ return {
 				--r = { "r" },
 				r = { "my_styler" },
 				tex = { "latexindent" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 			},
 			formatters = {
 				my_styler = {
