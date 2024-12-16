@@ -1,7 +1,15 @@
 return { -- terminal
 	"akinsho/toggleterm.nvim",
-	opts = {
-		open_mapping = [[<c-\>]],
-		direction = "float",
-	},
+	version = "*",
+	config = function()
+		require("toggleterm").setup({
+			--direction = "horizontal",
+			direction = "float",
+			-- use leader t to toggle terminal
+			--open_mapping = [[<leader>t]],
+			shade_filetypes = {},
+			shade_terminals = true,
+			shade_factor = 1,
+		})
+	end,
 }

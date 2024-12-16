@@ -3,7 +3,8 @@ return {
 		"R-nvim/R.nvim",
 		lazy = false,
 		config = function()
-			R_csv_app = "terminal:vd"
+			R_csv_app = "R --no-save"
+			vim.g.R_external_term = "toggleterm"
 			local opts = {
 				hook = {
 					after_config = function()
@@ -74,7 +75,10 @@ return {
 			},
 			codeRunner = {
 				enabled = true,
-				default_method = "slime",
+				default_method = "molten",
+			},
+			completion = {
+				enabled = true,
 			},
 		},
 		dependencies = {
@@ -91,6 +95,19 @@ return {
 					handle_leading_whitespace = true,
 				},
 			},
+		},
+	},
+	{
+		"benlubas/molten-nvim",
+		version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+		build = ":UpdateRemotePlugins",
+		init = function()
+			-- this is an example, not a default. Please see the readme for more configuration options
+			vim.keymap.set("n", "<leader>mi", ":MoltenInit<CR>", { desc = "Initialize Molten", silent = true })
+			vim.g.molten_output_win_max_height = 12
+		end,
+		dependencies = {
+			"benlubas/quarto-nvim",
 		},
 	},
 }

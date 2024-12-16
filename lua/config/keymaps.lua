@@ -14,6 +14,9 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Arreglar comportamiento de borrado eliminando clipboard
+keymap({ "n", "v" }, "x", '"_x')
+keymap({ "n", "v" }, "d", '"_d')
 -- Normal --
 -- Navegar al hacer splits
 keymap("n", "<C-h>", "<C-w>h", opts)

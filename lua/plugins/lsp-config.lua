@@ -14,6 +14,7 @@ return {
 					"tsserver", -- LSP de JavaScript
 					"ltex", -- LSP de LaTeX
 					"pylsp", -- LSP de Python
+					"r_language_server",
 				},
 			})
 		end,
@@ -28,7 +29,13 @@ return {
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
 			lspconfig.tsserver.setup({}) -- Comunicación con JavaScript
 			lspconfig.pyright.setup({}) -- Comunicación con Python
-			lspconfig.clangd.setup({}) -- Comunicación con C++
+			lspconfig.clangd.setup({
+				init_options = {
+					clangdFileStatus = true,
+				},
+				cmd = { "clangd" },
+				cmd_args = { "--std=c++17" },
+			}) -- Comunicación con C++
 			lspconfig.ltex.setup({ -- Comunicación con LaTeX
 				flags = { debounce_text_changes = 300 },
 				settings = {
@@ -45,9 +52,10 @@ return {
 			})
 			-- Comunicación con R
 			lspconfig.r_language_server.setup({
-				handlers = {
-					["textDocument/publishDiagnostics"] = function() end,
-				},
+				--handlers = {
+				--["textDocument/publishDiagnostics"] = function() end, -- Descomentar para no tener diagnósticos de espaciado
+				--},
+				flags = { debounce_text_changes = 150 },
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores
