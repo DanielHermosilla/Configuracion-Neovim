@@ -10,6 +10,7 @@ return {
 					enable = true,
 					disable = { "latex", "markdown" },
 				},
+				ensure_installed = { "markdown", "markdown_inline", "r", "rnoweb", "yaml", "csv" },
 				indent = { enable = true },
 				ignore_install = { "latex" },
 			})

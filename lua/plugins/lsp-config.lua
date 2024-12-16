@@ -11,7 +11,6 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = { -- Hacemos que se tengan los LSP
 					"lua_ls", -- LSP de Lua
-					"tsserver", -- LSP de JavaScript
 					"ltex", -- LSP de LaTeX
 					"pylsp", -- LSP de Python
 					"r_language_server",
