@@ -4,7 +4,8 @@ return {
 		lazy = false,
 		config = function()
 			R_csv_app = "R --no-save"
-			vim.g.R_external_term = "toggleterm"
+			-- vim.g.R_external_term = "sh -c '/usr/bin/open -a Terminal'"
+			vim.g.applescript = true -- Habilita el uso de AppleScript con R.app
 			local opts = {
 				hook = {
 					after_config = function()
@@ -58,9 +59,19 @@ return {
 							unique = true,
 							desc = "Limpiar la consola",
 						}) -- Con <leader>rc se puede cerrar la consola
+						vim.api.nvim_buf_set_keymap(0, "n", "<leader>ob", "<Plug>ROBToggle", {
+							noremap = true,
+							silent = true,
+							expr = false,
+							desc = "Abre el object browser",
+						}) -- Con <leader>bo se puede abrir el object browser
 					end,
 				},
 				user_maps_only = true,
+				is_darwin = false, -- Fuerza a R.nvim a no detectar macOS
+				-- external_term = "~/.local/bin/iterm2",
+				external_term = false,
+				R_app = "radian", -- Asegura que use R en lugar de radian u otra variante
 			}
 			require("r").setup(opts)
 		end,

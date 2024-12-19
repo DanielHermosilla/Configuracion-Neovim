@@ -26,13 +26,12 @@ return {
 
 			-- Configuraciones de comunicación --
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
-			lspconfig.tsserver.setup({}) -- Comunicación con JavaScript
 			lspconfig.pyright.setup({}) -- Comunicación con Python
 			lspconfig.clangd.setup({
 				init_options = {
 					clangdFileStatus = true,
 				},
-				cmd = { "clangd" },
+				cmd = { "clangd", "--compile-commands-dir=build" },
 				cmd_args = { "--std=c++17" },
 			}) -- Comunicación con C++
 			lspconfig.ltex.setup({ -- Comunicación con LaTeX
