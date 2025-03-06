@@ -1,15 +1,50 @@
-return { -- terminal
+return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
-	config = function()
-		require("toggleterm").setup({
-			--direction = "horizontal",
-			direction = "float",
-			-- use leader t to toggle terminal
-			--open_mapping = [[<leader>t]],
-			shade_filetypes = {},
-			shade_terminals = true,
-			shade_factor = 1,
-		})
-	end,
 }
+--config = function()
+--local toggleterm = require("toggleterm")
+---- Function to disable toggleterm in R and Rmd files
+--local function should_disable()
+--local ft = vim.bo.filetype
+--return ft == "r" or ft == "rmd"
+--end
+--
+---- Setup ToggleTerm
+--require("toggleterm").setup({
+--size = 15, -- Open terminal at bottom with height of 15 rows
+--open_mapping = [[<leader>rf]], -- Open terminal with <leader>rf
+--hide_numbers = true,
+--shade_terminals = true,
+--shading_factor = 2,
+--start_in_insert = true,
+--persist_size = true,
+--direction = "horizontal", -- Open terminal at the bottom
+--close_on_exit = true,
+--shell = vim.o.shell,
+--autochdir = true, -- Change terminal directory to match Neovim
+--on_open = function(term)
+--if should_disable() then
+--vim.cmd("ToggleTerm") -- Automatically close if .R or .Rmd
+--print("ToggleTerm disabled for R files.")
+--end
+--end,
+--})
+--
+---- Keybindings
+--vim.keymap.set(
+--"n",
+--"<leader>rf",
+--"<cmd>ToggleTerm direction=horizontal<CR>",
+--{ desc = "Open terminal horizontally" }
+--)
+--vim.keymap.set("n", "<leader>rq", "<cmd>ToggleTermToggleAll<CR>", { desc = "Close terminal" })
+--local trim_spaces = false
+--
+---- Send visual selection to terminal
+--vim.keymap.set("v", "<leader>ll", function()
+--toggleterm.send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+--end, { desc = "Send selection to terminal" })
+--end,
+--}
+--

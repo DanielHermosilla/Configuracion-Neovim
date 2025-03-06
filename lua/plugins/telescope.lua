@@ -25,6 +25,13 @@ return {
 				end,
 				desc = "Telescope Diagnostics",
 			},
+			{ -- Mostrar errores y warnings
+				"<leader>lg",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+				desc = "Telescope livegrep",
+			},
 		},
 	},
 	{

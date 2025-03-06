@@ -33,6 +33,12 @@ return {
 				},
 				cmd = { "clangd", "--compile-commands-dir=build" },
 				cmd_args = { "--std=c++17" },
+				root_dir = require("lspconfig.util").root_pattern(
+					"Makefile",
+					".clangd",
+					"compile_commands.json",
+					".git"
+				),
 			}) -- Comunicación con C++
 			lspconfig.ltex.setup({ -- Comunicación con LaTeX
 				flags = { debounce_text_changes = 300 },
@@ -42,6 +48,7 @@ return {
 						language = "es",
 					},
 				},
+				filetypes = { "tex", "txt" },
 			})
 			--
 			-- configure texlab server

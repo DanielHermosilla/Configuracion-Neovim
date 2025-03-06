@@ -5,7 +5,6 @@ return {
 		config = function()
 			R_csv_app = "R --no-save"
 			-- vim.g.R_external_term = "sh -c '/usr/bin/open -a Terminal'"
-			vim.g.applescript = true -- Habilita el uso de AppleScript con R.app
 			local opts = {
 				hook = {
 					after_config = function()
@@ -68,9 +67,9 @@ return {
 					end,
 				},
 				user_maps_only = true,
-				is_darwin = false, -- Fuerza a R.nvim a no detectar macOS
+				rconsole_width = 0,
+				-- is_darwin = true, -- Fuerza a R.nvim a no detectar macOS
 				-- external_term = "~/.local/bin/iterm2",
-				external_term = false,
 				R_app = "radian", -- Asegura que use R en lugar de radian u otra variante
 			}
 			require("r").setup(opts)

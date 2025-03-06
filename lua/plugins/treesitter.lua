@@ -8,11 +8,11 @@ return {
 				auto_install = true, -- Instala cada vez que encuentra un lenguaje nuevo
 				highlight = {
 					enable = true,
-					disable = { "latex", "markdown" },
+					disable = {},
 				},
 				ensure_installed = { "markdown", "markdown_inline", "r", "rnoweb", "yaml", "csv" },
 				indent = { enable = true },
-				ignore_install = { "latex" },
+				ignore_install = {},
 			})
 		end,
 	},

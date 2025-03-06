@@ -31,7 +31,7 @@ return {
 		opts = {
 			notify_on_error = false,
 			format_on_save = {
-				timeout_ms = 5000,
+				timeout_ms = 20000, -- 20 seconds
 				lsp_fallback = true,
 			},
 			formatters_by_ft = {
@@ -54,9 +54,16 @@ return {
 					command = "R",
 					-- A list of strings, or a function that returns a list of strings
 					-- Return a single string instead of a list to run the command in a shell
-					args = { "-s", "-e", "styler::style_file(commandArgs(TRUE)[1])", "--args", "$FILENAME" },
+					args = {
+						"-s",
+						"-e",
+						"styler::style_file(commandArgs(TRUE)[1], indent_by = 4)",
+						"--args",
+						"$FILENAME",
+					},
 					--	args = { "-e", "styler::style_file('$FILENAME')" },
 					stdin = false,
+					async = true,
 				},
 			},
 			latexindent = {
