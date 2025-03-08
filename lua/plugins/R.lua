@@ -19,6 +19,7 @@ return {
 				mode = "v",
 				desc = "Mandar la selección a la consola",
 				silent = true,
+				ft = { "R", "Rscript", "rmd" },
 			},
 			{
 				"<leader>v",
@@ -65,6 +66,14 @@ return {
 				"<Plug>ROBToggle",
 				mode = "n",
 				desc = "Abre el object browser",
+				silent = true,
+				ft = { "R", "Rscript", "rmd" },
+			},
+			{
+				"<leader>ls",
+				"<Plug>RSendChunk",
+				mode = "n",
+				desc = "Manda la celda de código",
 				silent = true,
 				ft = { "R", "Rscript", "rmd" },
 			},
