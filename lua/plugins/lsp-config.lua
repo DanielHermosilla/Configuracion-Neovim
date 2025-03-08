@@ -19,7 +19,7 @@ return {
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig", -- Permite la comunicación entre Neovim y el servidor
+		"neovim/nvim-lspconfig", -- Permite la comunicaciín entre Neovim y el servidor
 
 		config = function()
 			local lspconfig = require("lspconfig")

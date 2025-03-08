@@ -14,7 +14,6 @@ return {
 			{ "R-nvim/cmp-r" },
 			{
 				"L3MON4D3/LuaSnip",
-				build = vim.fn.has("win32") ~= 0 and "make install_jsregexp" or nil, -- Caso que se corre en Windows
 				dependencies = {
 					"rafamadriz/friendly-snippets",
 					"saadparwaiz1/cmp_luasnip",
@@ -117,6 +116,7 @@ return {
 					{ name = "cmp_r" },
 				}, {
 					{ name = "buffer" },
+					{ name = "render-markdown" },
 				}),
 			})
 			require("cmp_r").setup({})

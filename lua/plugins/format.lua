@@ -1,30 +1,3 @@
---[[ return {
-	"nvimtools/none-ls.nvim", -- Null-LS mantenido por la comunidad
-	dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-	},
-	config = function()
-		local null_ls = require("null-ls")
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.stylua, -- Formatter de Lua
-				null_ls.builtins.formatting.prettier, -- Formatter de JavaScript
-				null_ls.builtins.formatting.black, -- Formatter de Python
-				null_ls.builtins.formatting.isort, -- Formatter de Python
-				null_ls.builtins.formatting.prettier, -- Formatter de varios lenguajes
-				null_ls.builtins.formatting.sqlfluff, -- Formatter de SQL
-				--require("null_ls.builtins.formatting.latexindent"),
-
-
-			--	null_ls.builtins.formatting.latexindent,
-			},
-		})
-	end,
-	keys = {
-		{ "<leader>gf", vim.lsp.buf.format },
-	},
-} --]]
-
 return {
 	{ -- Autoformat
 		"stevearc/conform.nvim",
@@ -38,12 +11,6 @@ return {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
 				python = { "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
-				-- latex = { "latexindent" },
-				--r = { "r" },
 				r = { "my_styler" },
 				tex = { "latexindent" },
 				c = { "clang-format" },
@@ -80,7 +47,7 @@ return {
 					vim.cmd.update()
 				end,
 				mode = { "n", "x" },
-				desc = "Formatea y guarda",
+				desc = "Format and save",
 			},
 		},
 	},

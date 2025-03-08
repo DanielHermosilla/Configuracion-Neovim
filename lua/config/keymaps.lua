@@ -41,10 +41,6 @@ keymap("n", "<leader>rn", ":let @/=expand('<cword>')<cr>cgn", opts)
 -- Abre el filetree
 keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
--- Activa y desactiva los warnings
-keymap("n", "<leader>d", ":lua vim.diagnostic.config({ virtual_text = false })<CR>", opts) -- Saca el texto de los errores
-keymap("n", "<leader>dd", ":lua vim.diagnostic.config({ virtual_text = true })<CR>", opts) -- Vuelve a poner el texto de los errores
-
 -- Permite tabear en modo normal
 keymap("n", "<tab>", ">>", opts)
 keymap("n", "<s-tab>", "<<", opts)
@@ -53,6 +49,8 @@ keymap("n", "<s-tab>", "<<", opts)
 -- tocar jk para ir a modo normal
 keymap("i", "jk", "<esc>", opts)
 keymap("i", "kj", "<esc>", opts)
+keymap("i", "JK", "<esc>", opts)
+keymap("i", "KJ", "<esc>", opts)
 
 -- Entrar a modo visual al seleccionar palabras
 keymap("i", "<S-Right>", "<esc>vw", opts)

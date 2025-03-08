@@ -6,7 +6,7 @@ return {
 		config = function()
 			-- Configurar VimTeX para usar LuaLaTeX
 			vim.g.vimtex_compiler_latexmk = {
-				build_dir = "",
+				build_dir = "build", -- Todo compilar en el directorio build.
 				callback = 1,
 				continuous = 1,
 				executable = "latexmk",
