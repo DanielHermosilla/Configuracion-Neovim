@@ -5,6 +5,8 @@ return {
 	config = function()
 		-- Carga el colorscheme automáticamente
 		vim.cmd("colorscheme ayu_dark") -- El colorscheme a utilizar
+		vim.cmd("hi markdownH1 guifg=##ff0000")
+		-- vim.cmd("hi link @markup.heading.1.markdown guifg=#ff0000")
 	end,
 }
 

@@ -9,7 +9,8 @@ return {
 		opts = {
 			codeRunner = {
 				enabled = true,
-				default_method = "molten",
+				default_method = "R-nvim",
+				ft_runners = { r = "R-nvim" },
 			},
 			completion = {
 				enabled = true,
@@ -53,6 +54,5 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
-		opts = {},
 	},
 }

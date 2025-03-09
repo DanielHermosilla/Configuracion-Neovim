@@ -1,7 +1,7 @@
 return {
 	{
 		"R-nvim/R.nvim",
-		ft = { "R", "Rscript", "rmd" }, -- Load only for R-related filetypes
+		ft = { "R", "Rscript", "rmd", "quarto", "qmd" }, -- Load only for R-related filetypes
 		lazy = false,
 
 		keys = {
@@ -11,7 +11,7 @@ return {
 				mode = "n",
 				desc = "Mandar el archivo a la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>ll",
@@ -19,7 +19,7 @@ return {
 				mode = "v",
 				desc = "Mandar la selección a la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>v",
@@ -27,7 +27,7 @@ return {
 				mode = "n",
 				desc = "Ver el dataframe",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>s",
@@ -35,7 +35,7 @@ return {
 				mode = "n",
 				desc = "Hacer un summary del dataframe",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>c",
@@ -43,7 +43,7 @@ return {
 				mode = "n",
 				desc = "Limpiar la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>rf",
@@ -51,7 +51,7 @@ return {
 				mode = "n",
 				desc = "Inicia la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>rc",
@@ -59,7 +59,7 @@ return {
 				mode = "n",
 				desc = "Cerrar la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>ob",
@@ -67,7 +67,7 @@ return {
 				mode = "n",
 				desc = "Abre el object browser",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 			{
 				"<leader>ls",
@@ -75,7 +75,7 @@ return {
 				mode = "n",
 				desc = "Manda la celda de código",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "quarto", "qmd" },
 			},
 		},
 

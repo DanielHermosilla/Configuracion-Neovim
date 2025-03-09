@@ -4,6 +4,7 @@ return {
 		build = ":TSUpdate",
 		config = function()
 			local config = require("nvim-treesitter.configs")
+			vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { fg = "#ff0000" })
 			config.setup({
 				auto_install = true, -- Instala cada vez que encuentra un lenguaje nuevo
 				highlight = {

@@ -23,7 +23,8 @@ local theme = {
 	require("theme.mind"),
 	require("theme.rainbow"),
 	require("theme.journal"),
-	require("theme.nui")
+	require("theme.nui"),
+	require("theme.markdown"),
 }
 
 for _, hl in pairs(theme) do
