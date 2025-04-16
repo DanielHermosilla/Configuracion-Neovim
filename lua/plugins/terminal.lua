@@ -1,6 +1,34 @@
 return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
+	cond = function()
+		local ft = vim.bo.filetype
+		return ft ~= "R" and ft ~= "Rmd"
+	end,
+	enabled = false,
+	keys = {
+		{ "<leader>rf", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "ToggleTerm horizontal" },
+	},
+	config = function()
+		require("toggleterm").setup({
+			direction = "horizontal",
+			close_on_exit = false,
+			shade_terminals = true,
+			start_in_insert = true,
+			auto_scroll = true,
+			persist_mode = false,
+		})
+
+		-- Keybind for sending current line or block in normal mode (IPython style)
+		vim.keymap.set("n", "<leader>ll", function()
+			require("toggleterm").send_lines_to_terminal("single_line", true, { args = { "-i" } })
+		end, { desc = "Send line to terminal" })
+
+		local trim_spaces = true
+		vim.keymap.set("v", "<leader>ll", function()
+			require("toggleterm").send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+		end)
+	end,
 }
 --config = function()
 --local toggleterm = require("toggleterm")
@@ -47,4 +75,3 @@ return {
 --end, { desc = "Send selection to terminal" })
 --end,
 --}
---

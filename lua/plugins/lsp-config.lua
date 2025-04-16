@@ -20,7 +20,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig", -- Permite la comunicaciín entre Neovim y el servidor
-
+		dependencies = {"saghen/blink.cmp"},
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -64,6 +64,16 @@ return {
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores
+
+			vim.diagnostic.config({
+				virtual_text = {
+					spacing = 2,
+				},
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+			})
 
 			-- UI --
 			-- TODO: iconos, instalar Nerd Fonts correctamente

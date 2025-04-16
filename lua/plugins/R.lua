@@ -6,7 +6,7 @@ return {
 
 		keys = {
 			{
-				"<leader>ll",
+				"<leader>lf",
 				"<Plug>RSendFile",
 				mode = "n",
 				desc = "Mandar el archivo a la consola",
@@ -70,7 +70,7 @@ return {
 				ft = { "R", "Rscript", "rmd" },
 			},
 			{
-				"<leader>ls",
+				"<leader>lc",
 				"<Plug>RSendChunk",
 				mode = "n",
 				desc = "Manda la celda de código",
@@ -89,7 +89,13 @@ return {
 			]]
 			user_maps_only = true,
 			rconsole_width = 0,
+			Rout_more_colors = true,
+			editing_mode = "vi",
+			pipe_version = "magrittr",
 			R_app = "radian", -- Ensure R.nvim uses radian as the R console
+			bracketed_paste = true,
+			auto_quit = true,
+			-- nvimpager = true,
 			-- auto_quit = true,
 			-- nvimpager = true,
 			-- open_example = true,

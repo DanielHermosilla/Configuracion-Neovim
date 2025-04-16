@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"jmbuhr/otter.nvim",
 		},
-		ft = { "quarto", "qmd" },
+		ft = { "quarto", "qmd", "ipynb" },
 		dev = false,
 		opts = {
 			codeRunner = {
@@ -24,7 +24,7 @@ return {
 				mode = "n",
 				desc = "Run cell",
 				silent = true,
-				ft = { "quarto", "qmd" },
+				ft = { "quarto", "qmd", "ipynb" },
 			},
 			{
 				"<leader>ll",
@@ -34,7 +34,7 @@ return {
 				mode = "v",
 				desc = "Run visual range",
 				silent = true,
-				ft = { "quarto", "qmd" },
+				ft = { "quarto", "qmd", "ipynb" },
 			},
 			{
 				"<leader>sf",
@@ -44,7 +44,7 @@ return {
 				mode = "n",
 				desc = "Run all cells",
 				silent = true,
-				ft = { "quarto", "qmd" },
+				ft = { "quarto", "qmd", "ipynb" },
 			},
 		},
 	},

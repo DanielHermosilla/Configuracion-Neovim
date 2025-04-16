@@ -3,6 +3,7 @@ return {
 		"geg2102/nvim-python-repl",
 		dependencies = { "nvim-treesitter" },
 		ft = { "python" },
+		enabled = false,
 
 		opts = {
 			execute_on_send = true, -- Automatically execute after sending?
