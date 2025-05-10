@@ -20,7 +20,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig", -- Permite la comunicaciín entre Neovim y el servidor
-		dependencies = {"saghen/blink.cmp"},
+		dependencies = { "saghen/blink.cmp" },
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -46,6 +46,9 @@ return {
 					ltex = {
 						-- language = "en"
 						language = "es",
+						additionalRules = {
+							enablePickyRules = true,
+						},
 					},
 				},
 				filetypes = { "tex", "txt" },
