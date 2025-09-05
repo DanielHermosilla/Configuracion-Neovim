@@ -5,7 +5,8 @@ return {
 		local ft = vim.bo.filetype
 		return ft ~= "R" and ft ~= "Rmd"
 	end,
-	enabled = false,
+	enabled = true,
+	ft = { "python" },
 	keys = {
 		{ "<leader>rf", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "ToggleTerm horizontal" },
 	},

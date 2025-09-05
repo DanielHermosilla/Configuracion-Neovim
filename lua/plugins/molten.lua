@@ -2,6 +2,7 @@ return {
 	"benlubas/molten-nvim",
 	version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
 	ft = { "quarto", "qmd", "ipynb", "md" },
+	enabled = false,
 	lazy = false,
 	keys = {
 		{
@@ -45,13 +46,13 @@ return {
 		-- vim.g.molten_image_provider = "wezterm"
 		vim.g.molten_output_win_max_height = 40
 		-- I find auto open annoying, keep in mind setting this option will require setting
-		vim.g.molten_auto_open_output = true
+		-- vim.g.molten_auto_open_output = true
 
 		-- this guide will be using image.nvim
 		-- Don't forget to setup and install the plugin if you want to view image outputs
 
 		-- optional, I like wrapping. works for virt text and the output window
-		vim.g.molten_wrap_output = true
+		-- vim.g.molten_wrap_output = true
 
 		-- Output as virtual text. Allows outputs to always be shown, works with images, but can
 		-- be buggy with longer images

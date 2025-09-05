@@ -5,6 +5,7 @@ return {
 			"jmbuhr/otter.nvim",
 		},
 		ft = { "quarto", "qmd", "ipynb" },
+		enabled = false,
 		dev = false,
 		opts = {
 			codeRunner = {

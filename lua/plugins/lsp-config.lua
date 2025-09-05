@@ -14,6 +14,7 @@ return {
 					"ltex", -- LSP de LaTeX
 					"pylsp", -- LSP de Python
 					"r_language_server",
+					"jdtls",
 				},
 			})
 		end,
@@ -64,6 +65,12 @@ return {
 				--["textDocument/publishDiagnostics"] = function() end, -- Descomentar para no tener diagnósticos de espaciado
 				--},
 				flags = { debounce_text_changes = 150 },
+			})
+			-- Comunicación con Java
+			lspconfig.jdtls.setup({
+				cmd = { "jdtls" }, -- assumes `jdtls` is on your PATH
+				root_dir = require("lspconfig.util").root_pattern(".git", "pom.xml", "build.gradle"),
+				-- you can add other `jdtls`-specific settings here
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Mostrar información del objeto
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- Ventana para ver los errores

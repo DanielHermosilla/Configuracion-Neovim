@@ -1,7 +1,8 @@
 return {
 	{
 		"R-nvim/R.nvim",
-		ft = { "R", "Rscript", "rmd" }, -- Load only for R-related filetypes
+		-- branch = "wezkitty",
+		ft = { "R", "Rscript", "rmd", "qmd", "quarto" }, -- Load only for R-related filetypes
 		lazy = false,
 
 		keys = {
@@ -11,7 +12,7 @@ return {
 				mode = "n",
 				desc = "Mandar el archivo a la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>ll",
@@ -19,7 +20,7 @@ return {
 				mode = "v",
 				desc = "Mandar la selección a la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>v",
@@ -27,7 +28,7 @@ return {
 				mode = "n",
 				desc = "Ver el dataframe",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>s",
@@ -35,7 +36,7 @@ return {
 				mode = "n",
 				desc = "Hacer un summary del dataframe",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>c",
@@ -43,7 +44,7 @@ return {
 				mode = "n",
 				desc = "Limpiar la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>rf",
@@ -51,7 +52,7 @@ return {
 				mode = "n",
 				desc = "Inicia la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>rc",
@@ -59,7 +60,7 @@ return {
 				mode = "n",
 				desc = "Cerrar la consola",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>ob",
@@ -67,7 +68,7 @@ return {
 				mode = "n",
 				desc = "Abre el object browser",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 			{
 				"<leader>lc",
@@ -75,7 +76,7 @@ return {
 				mode = "n",
 				desc = "Manda la celda de código",
 				silent = true,
-				ft = { "R", "Rscript", "rmd" },
+				ft = { "R", "Rscript", "rmd", "qmd", "quarto" },
 			},
 		},
 
@@ -95,6 +96,7 @@ return {
 			R_app = "radian", -- Ensure R.nvim uses radian as the R console
 			bracketed_paste = true,
 			auto_quit = true,
+			-- external_term = "wezterm",
 			-- nvimpager = true,
 			-- auto_quit = true,
 			-- nvimpager = true,
