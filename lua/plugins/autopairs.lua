@@ -9,6 +9,12 @@ return {
 		local Rule = require("nvim-autopairs.rule")
 		local cond = require("nvim-autopairs.conds")
 
-		npairs.setup({})
+		npairs.setup({
+			check_ts = true,
+		})
+		npairs.add_rules({
+			Rule("$", "$", "tex"), -- cuando abres $, cierra con $
+			Rule("\\[", "\\]", "tex"), -- opcional: \[ ... \]
+		})
 	end,
 }

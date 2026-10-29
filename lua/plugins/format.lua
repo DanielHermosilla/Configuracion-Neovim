@@ -13,10 +13,11 @@ return {
 				python = { "black" },
 				r = { "my_styler" },
 				tex = { "latexindent" },
-				c = { "clang-format" },
-				cpp = { "clang-format" },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
 			},
 			formatters = {
+				clang_format = { prepend_args = { "--style=file", "--fallback-style=none" } },
 				my_styler = {
 					command = "R",
 					-- A list of strings, or a function that returns a list of strings

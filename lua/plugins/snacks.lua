@@ -88,9 +88,9 @@ return {
 			{
 				"<leader>gd",
 				function()
-					Snacks.picker.git_diff()
+					vim.lsp.buf.definition()
 				end,
-				desc = "Git Diff (Hunks)",
+				desc = "Goto Definition",
 			},
 			{
 				"<leader>gf",

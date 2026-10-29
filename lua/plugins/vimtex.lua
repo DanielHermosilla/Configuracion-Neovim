@@ -11,18 +11,30 @@ return {
 			vim.g.vimtex_fold_enabled = 1
 			vim.g.vimtex_fold_manual = 0
 
-			-- Configurar VimTeX para usar LuaLaTeX
 			vim.g.vimtex_compiler_latexmk = {
-				build_dir = "build", -- Todo compilar en el directorio build.
+				build_dir = "",
 				callback = 1,
 				continuous = 1,
 				executable = "latexmk",
 				options = {
 					"-pdf",
+					"-pdflatex=pdflatex",
 					"-interaction=nonstopmode",
-					--"-pdflatex=lualatex -interaction=nonstopmode -synctex=1", -- Descomentar en caso de querer usar LuaLaTeX
+					"-synctex=1",
 				},
 			}
+		end,
+	},
+	{
+		"barreiroleo/ltex_extra.nvim",
+		ft = { "tex", "plaintex", "bib", "markdown", "rmarkdown", "rmd", "quarto", "qmd" },
+		config = function()
+			require("ltex_extra").setup({
+				load_langs = { "es" }, -- idiomas a cargar
+				init_check = true, -- comprobar ltex al inicio
+				path = ".ltex", -- carpeta para diccionarios del proyecto
+				-- Puedes usar :LtexAddWord para añadir la palabra bajo el cursor
+			})
 		end,
 	},
 }

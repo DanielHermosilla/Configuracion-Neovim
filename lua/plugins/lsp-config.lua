@@ -26,6 +26,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Configuraciones de comunicación --
+			lspconfig.julials.setup({}) -- Comunicación con Julia
 			lspconfig.lua_ls.setup({}) -- Comunicación con Lua
 			lspconfig.pyright.setup({}) -- Comunicación con Python
 			lspconfig.clangd.setup({
@@ -49,15 +50,36 @@ return {
 						language = "es",
 						additionalRules = {
 							enablePickyRules = true,
+							motherTongue = "es", -- ayuda a reducir falsos positivos
 						},
 					},
 				},
 				filetypes = { "tex", "txt" },
 			})
-			--
 			-- configure texlab server
 			lspconfig["texlab"].setup({
 				latexFormatter = "latexindent",
+			})
+			-- Comunicación con Python (Pyright)
+			lspconfig.pyright.setup({
+				settings = {
+					python = {
+						analysis = {
+							-- Baja o apaga el type checking si prefieres
+							typeCheckingMode = "basic", -- o "off"
+							-- Silencia diagnósticos que molestan con import *
+							diagnosticSeverityOverrides = {
+								reportUndefinedVariable = "none",
+								reportWildcardImportFromLibrary = "none",
+								reportMissingImports = "none",
+								reportMissingModuleSource = "none",
+							},
+							-- (opcional) evita sugerencias agresivas de auto-import
+							autoImportCompletions = false,
+							useLibraryCodeForTypes = true,
+						},
+					},
+				},
 			})
 			-- Comunicación con R
 			lspconfig.r_language_server.setup({

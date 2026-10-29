@@ -30,4 +30,18 @@ vim.opt.termguicolors = true -- Ocupa los colores del terminal
 vim.g.mapleader = " " -- Declara a la tecla lider
 vim.opt.fillchars = { eob = " " } -- Saca los "~" al final de los archivos (usar mientras se ocupe relative number)
 vim.o.foldcolumn = "0" -- Remove fold column
+vim.opt.foldenable = false -- Mostrar folds solo al activarlos explícitamente
 -- vim.o.fillchars = "fold: " -- Remove fold lines
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "tex", "plaintex", "bib" },
+	callback = function(args)
+		vim.schedule(function()
+			for _, win in ipairs(vim.fn.win_findbuf(args.buf)) do
+				if vim.api.nvim_win_is_valid(win) then
+					vim.wo[win].foldenable = false
+				end
+			end
+		end)
+	end,
+})
